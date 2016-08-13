@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;  
+}
+
+div.nav-bar2 {
+    height: 40px;
+    width: 100%;
+    background-color: green;
+    margin-top:20px;
+}
+
+.nav-bar2 li {
+    float:left;
+    display:inline;
+    color: #fff;
+    text-align:center;
+    line-height:40px;
+    font-weight:bold;
+    padding:0 100px;
+}
+
+.nav-bar2 li:hover,.active {
+    background:#ccc;
+    cursor: pointer;
+}

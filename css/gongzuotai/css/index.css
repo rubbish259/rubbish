@@ -1,0 +1,355 @@
+
+* {
+ margin:0;
+ padding:0;
+}
+
+body {
+    background-color:#ccc;
+}
+
+a {
+    text-decoration: none;
+}
+
+.clear {
+    clear: both;
+}
+
+.tpjl {
+    background-image: url(../img/qyb.png);
+}
+
+.main-wp {
+    background-color: #fff;
+    width: 960px;
+    margin:20px auto 0;
+    padding: 30px 10px 10px 30px;
+}
+
+.top-bar {
+    height: 50px;
+    line-height:50px;
+    background-color: #4fc2c3;
+    font-size: 18px;
+    color: #fff;
+    padding-left: 20px;
+}
+
+/* date picker */
+
+.date-picker span {
+    float:left;
+    height: 30px;
+    line-height:30px;
+    text-align:center;
+    border: 1px solid #d3d3d3;
+    border-right:none;
+    border-left: none;
+}
+
+.date-picker span.dp-left,.date-picker span.dp-right {
+    width: 30px;
+}
+
+.date-picker span.dp-left {
+    background-color: #4fc2c3;
+}
+
+.dp-right {
+    background-color:#ccc;
+}
+
+
+.date-picker {
+    width: 180px;
+    height: 30px;
+    float: left;
+}
+
+.search-wp {
+    width: 378px;
+    height: 30px;
+    float: right;
+    margin-right: 20px;
+}
+
+.wbk {
+    width: 300px;
+    height: 30px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    float:left;
+    margin-right:10px;
+}
+
+.text-btn{
+    height: 30px;
+    border: 0;
+    width: 300px;
+    outline:none;
+}
+
+.jzb-btn{
+    width: 66px;
+    line-height: 30px;
+    height: 30px;
+    background-color: #4fc2c3;
+    text-align: center;
+    float:left;
+}
+
+.jzb-btn:hover {
+    background-color: #faffff;
+    cursor:pointer;
+}
+
+.list-items {
+    margin-top: 20px;
+}
+
+.list-items a {
+    border:1px solid #caebeb;
+    width: 298px;
+    height: 230px;
+    display: block;
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.list-items a:hover {
+    border: 1px solid #50c2c4;
+    
+}
+
+.list-items a:hover .del-btn {
+    display: block;
+
+}
+
+.zg {
+    height: 50px;
+    width: 298px;
+    background-color: #faffff;
+    border-bottom: 1px solid #caebeb;
+}
+
+.zgzw {
+    background-position: -37px 0;  
+}
+
+.zg i.zg1 {
+    height: 35px;
+    width: 35px;
+    margin-left:10px;
+    margin-top:8px;
+    float:left;
+           
+
+}
+
+.fzg {
+    height: 35px;
+    width: 35px;
+    margin-left:10px;
+    margin-top:8px;
+    float:left;
+    background-position: -35px 0; 
+}
+
+.zw {
+    position: relative;
+    left: 10px;
+    top: 16px;
+}
+
+.wz {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+}
+
+.zg2 {
+    height: 67px;
+    width: 65px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-position: 0 -36px;
+}
+
+.zblb {
+    height: 130px;
+
+
+}
+
+.tj {
+    position:absolute;
+    top: 47px;
+    left:96px;
+}
+
+.ywc {
+    color:#79AAB0;
+    font-size:23px;
+}
+
+.jxz {
+    color: #6DBB66;
+    margin-left: 6px;
+    font-size: 22px;
+    margin-top: -3px;
+}
+
+.wks {
+    color: #999999;
+    margin-left: 5px;
+    font-size: 22px;
+    top: 13px;
+}
+
+div ul li {
+    list-style: none;
+    position: relative;
+    top: 18px;
+    left: 24px;
+    font-size: 18px;
+    color: #555555;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.ld {
+    background-position: -144px -27px;
+    display: inline-block;
+    height: 10px;
+    width: 9px;
+    margin-right:15px;
+}
+
+.ld1 {
+    background-position: -154px -27px;
+    display: inline-block;
+    height: 10px;
+    width: 9px;
+    margin-right:15px;
+}
+
+.ld2 {
+    background-position: -164px -27px;
+    display: inline-block;
+    height: 10px;
+    width: 9px;
+    margin-right:15px;
+}
+
+.bl {
+    width: 300px;
+    height: 58px;
+    background: #f6f6f6;
+    position: absolute;
+    bottom: 0;
+    background-image: url(../img/line.png);
+    background-repeat: repeat-x;
+}
+
+.bl p {
+    color: black;
+    line-height: 58px;
+    position: relative;
+    left: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.bl span {
+    float: right;
+    background-color: #FFC300;
+    width: 95px;
+    height: 38px;
+    text-align: center;
+    line-height: 38px;
+    color: #fff;
+    margin-top: 12px;
+    margin-right: 20px;
+    border-radius: 3px;
+    font-size: 20px;
+}
+
+.bl .ping {
+    height: 20px;
+    width: 23px;
+    display: inline-block;
+    background-position: -65px -53px;
+    position: absolute;
+    top: 19px;
+    left: 20px;
+}
+
+.del-btn {
+    width: 18px;
+    height: 18px;
+    background-position: 0 -90px;
+    position: absolute;
+    right: -15px;
+    top:-10px;
+    display: none;
+}
+
+.add-label {
+    height: 58px;
+    line-height: 58px;
+    background-color: #caebeb;
+    position: absolute;
+    bottom:0px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color:#000;
+    font-size:14px;
+}
+
+.lj {
+    background-position: -66px -71px;
+    width: 10px;
+    height: 15px;
+    display: inline-block;
+}
+
+.lj1 {
+    background-position: -65px -86px;
+    width: 10px;
+    height: 15px;
+    display: inline-block;
+}
+
+
+
+.add-label i{
+    display: block;
+    position:absolute;
+    top:-16px;
+    left:50%;
+    margin-left:-13px;
+    width: 60px;
+    height: 17px;
+    background-position: -101px -63px;
+}
+
+.add-btn {
+    width: 75px;    
+    height: 75px;
+    background-position: 0 -103px;
+    margin:55px auto 0;
+}
+
+.add-btn:hover {
+    background-position: -76px -103px;
+}
+/* .list-items a:hover {
+    background-position: -76px -103px; */
+}

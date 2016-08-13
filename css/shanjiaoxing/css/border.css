@@ -1,0 +1,97 @@
+
+* {
+    margin:0;
+    padding:0;
+}
+
+ul,li {
+    list-style: none;
+    font-family: "Micrsoft YaHei"
+}
+
+.arrow {
+    width: 0;
+    height: 0;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #fff transparent transparent;
+    position: absolute;
+    top:50%;
+    margin-top:-2.5px;
+    right:20px;
+}
+
+.netease-nav {
+    height: 75px;
+    margin-top: 30px;
+    background-color: red;
+}
+
+.netease-nav .logo {
+    width:585px;
+    height: 50px;
+    float:left;
+}
+
+.netease-nav ul {
+    float:left;
+}
+
+.netease-nav li {
+    float: left;
+    font-size: 22px;
+    color: #fff;
+    line-height: 75px;
+    width: 120px;
+    text-align: center;
+    position: relative;
+}
+
+.netease-nav li.active {
+    background-color: #bc353f;
+}
+
+/* ------------------------------------------ */
+
+.wp {
+    position: relative;
+    margin:100px;
+}
+
+.wp .red-btn {
+    padding: 10px 16px;
+    background-color: #d9534f;
+    display:inline-block;
+    color: #fff;
+    border-radius: 5px;
+    float: left;
+    cursor: pointer;
+}
+
+.wp .pop-hover {
+    border: 1px solid #ccc;
+    height: 100px;
+    width: 300px;
+    float:left;
+    position: relative;
+    top:-31px;
+    left:20px;
+    border-radius: 5px;
+}
+
+.wp .pop-hover .arrow2, .wp .pop-hover .arrow3 {
+    height: 0;
+    width: 0;
+    border-width:10px 10px 10px 0;
+    border-style: solid;
+    border-color: transparent #ccc transparent transparent;
+    position: absolute;
+    top:50%;
+    left:-10px;
+    margin-top:-10px;
+}
+
+.wp .pop-hover .arrow3 {
+    border-color: transparent #fff transparent transparent;
+    left:-9px;
+}

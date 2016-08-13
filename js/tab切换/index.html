@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>原生js实现tab</title>
+        <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+        <style>
+            .tab-wp {
+                width: 500px;
+                background-color: #ccc;
+            }
+            .tab-wp .tab-header {
+                background-color: #fff;
+            }
+            .tab-wp .tab-header a {
+                float: left;
+                margin-right: 10px;
+                width: 60px;
+                height: 45px;
+                text-align: center;
+                line-height: 45px;
+                color: #000;
+            }
+            .tab-wp .tab-header a.on {
+                background-color: #000;
+                color: #fff;
+            }
+            
+            .tab-wp .tab-header:after {
+                content: '';
+                display: block;
+                clear: both;
+            }
+            .tab-body div {
+                height: 300px;
+                display: none;
+            }
+            .tab-body div.on {
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <div class="tab-wp">
+            <div id="tabH" class="tab-header">
+                <a class="on" href="javascript:;">新闻</a>
+                <a href="javascript:;">历史</a>
+                <a href="javascript:;">政治</a>
+                <a href="javascript:;">军事</a>
+            </div>
+
+            <div id="tabB" class="tab-body">
+                <div class="on">111</div>
+                <div>222</div>
+                <div>333</div>
+                <div>444</div>
+            </div>
+        </div>
+        <script src="js/helper.js"></script>
+        <script src="js/index.js"></script>
+    </body>
+</html>
