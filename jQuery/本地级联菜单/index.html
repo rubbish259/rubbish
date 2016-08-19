@@ -23,7 +23,7 @@
                 var optArr = ['<option value="0">请选择</option>'];
                 $.each(data, function(index, obj) {
                     optArr.push('<option value="', obj.value, '">', obj.text, '</option>');
-                    console.log(obj.text)
+                    /*console.log(obj.text)*/
                 });
                 $('#' + renderId).html(optArr.join(''));
                 console.log('#'+renderId)
