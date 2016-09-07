@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>路由</title>
+    <link rel="stylesheet" href="js/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/user.css">
+
+    <script src="js/lib/jquery/dist/jquery.min.js"></script>
+    <script src="js/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="js/lib/angular/angular.min.js"></script>
+    <script src="js/lib/angular/angular-route.min.js"></script>
+</head>
+<body ng-app="wbcMng">
+    
+    <div class="nav">
+        <a href="#/">首页</a>
+        <a href="#/users">用户管理</a>
+        <a href="#/asset">资产管理</a>
+    </div>
+    <hr>
+
+    <div ng-view></div>
+
+    <div ng-include="'tmpl/nav.html'"></div>
+    <script>
+
+    /*var app = angular.module('wbcMng', ['ngRoute']);*/
+
+        var wbcMng = angular.module('wbcMng',['ngRoute'])
+            .config(['$routeProvider',function ($routeProvider) {
+                $routeProvider
+                    .when('/',{templateUrl: 'views/index.html',controller: 'indexController'})
+                    .when('/users',{templateUrl: 'views/users.html',controller: 'usersController'})
+                    .when('/asset',{templateUrl: 'views/asset.html',controller: 'assetController'})
+                    .otherwise({redirectTo: '/'});
+            }]);
+
+            wbcMng.controller('indexController',function () {
+                console.log('index');
+            });
+
+            wbcMng.controller('usersController',function () {
+                console.log('users');
+            });
+
+            wbcMng.controller('assetController',function () {
+                console.log('asset');
+            });
+    </script>
+</body>
+</html>

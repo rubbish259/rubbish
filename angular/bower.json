@@ -1,0 +1,25 @@
+{
+  "name": "nodejs",
+  "authors": [
+    "rubbish259 <rubbish_2592@163.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "js/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^1.12.4",
+    "underscore": "^1.8.3",
+    "angular": "angularjs#^1.2.30",
+    "bootstrap": "^3.3.7"
+  }
+}

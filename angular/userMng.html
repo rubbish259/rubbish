@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>angular用户管理</title>
+    <link rel="stylesheet" href="js/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/user.css">
+
+    <script src="js/lib/jquery/dist/jquery.min.js"></script>
+    <script src="js/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="js/lib/angular/angular.min.js"></script>
+    <script src="js/lib/underscore/underscore-min.js"></script>
+    <script src="js/user.js"></script>
+</head>
+<body ng-app="userMng" ng-controller="userMngController">
+    
+    <!-- nav -->
+    <div ng-include="'tmpl/nav.html'"></div>    
+
+    <div class="container">
+        <div class="seach-wp">
+          <ul class="nav nav-pills pull-left">
+          <li role="presentation" class="active"><a href="javascript:;">用户列表</a></li>
+          <li role="presentation"><a ng-click="newUser()" href="javascript:;">新增用户</a></li>
+        </ul>
+
+        <div class="col-lg-6 pull-right mb-10">
+            <div class="input-group">
+              <input ng-model="query" type="text" class="form-control" placeholder="请输入人名">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button" ng-click="seachUser()">搜索</button>
+              </span>
+            </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+        </div>
+        
+        <br>
+        <table class="table table-striped table-bordered table-hover mt-20">
+            <tr>
+                <th></th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>电话</th>
+                <th>住址</th>
+                <th>学历</th>
+                <th>爱好</th>
+                <th>照片</th>
+                <th  class="action">操作</th>
+            </tr>
+            <tr ng-repeat="user in users">
+                <td>{{$index + 1}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.age}}</td>
+                <td>{{user.gender}}</td>
+                <td>{{user.mobile}}</td>
+                <td>{{user.address}}</td>
+                <td>{{user.edu}}</td>
+                <td>{{user.hobbies | fmtHobbies}}</td>
+                <td>{{user.user_img}}</td>
+                <td class="action">
+                    <button class="btn btn-warning btn-xs" ng-click="updateUser()">修改</button>
+                    <button class="btn btn-danger btn-xs" ng-click="delUser()">删除</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <nav>
+      <ul class="pagination">
+        <li>
+          <a ng-click="firstPage()" href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li ng-class="{true:'active'}[$index==page]" ng-click="clickPagingLi()" ng-repeat="tmpPage in pageArr"><a href="javascript:;">{{tmpPage + 1}}</a></li>
+        <li>
+          <a ng-click="lastPage()" href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+        
+<!-- 新增用户框 -->
+    <div ng-include="'tmpl/dialog.html'"></div>
+</body>
+</html>
