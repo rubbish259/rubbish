@@ -1,0 +1,5 @@
+<div class="btn-group">
+    <button type="button" class="btn btn-success" ng-click="addBookClick()">新增图书</button>
+    <button ng-disabled="params.ids.length!=1" type="button" class="btn btn-warning" ng-click="modiBookClick()">修改图书</button>
+    <button ng-disabled="params.ids.length==0" type="button" class="btn btn-danger" ng-click="delBookClick()">删除图书</button>
+</div>

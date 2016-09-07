@@ -1,0 +1,94 @@
+<div class="modal fade" id="bookDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">{{bookDlgTitle}}</h4>
+            </div>
+            <div class="modal-body">
+                <!-- 表单  -->  
+                <form id="booksForm" class="form-horizontal">
+                 <input type="hidden" id="bookId">
+                  <div class="form-group has-success has-feedback">
+                    <label class="control-label col-sm-3">书名：</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" ng-model="book.name">
+                      <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                      <span id="inputSuccess3Status" class="sr-only">(success)</span>
+                    </div>
+                  </div>
+                  <div class="form-group has-success has-feedback">
+                    <label class="control-label col-sm-3" >作者：</label>
+                    <div class="col-sm-4">
+                      <div class="input-group">
+                        <input id="author" type="text" class="form-control"ng-model="book.author">
+                      </div>
+                      <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                      <span id="inputGroupSuccess2Status" class="sr-only">(success)</span>
+                    </div>
+                  </div>
+                  <div class="form-group has-success has-feedback">
+                    <label class="control-label col-sm-3">出版社：</label>
+                    <div class="col-sm-9">
+                      <input id="publisher" type="text" class="form-control" ng-model="book.publisher">
+                      <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                      <span id="inputSuccess3Status" class="sr-only">(success)</span>
+                    </div>
+                  </div>
+                  <div class="form-group has-success has-feedback">
+                    <label class="control-label col-sm-3">出版日期：</label>
+                    <div class="col-sm-4">
+                      <input id="p_date" type="text" class="form-control" ng-model="book.p_date">
+                      <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                      <span id="inputSuccess3Status" class="sr-only">(success)</span>
+                    </div>
+                  </div>
+
+                  <div class="form-group has-success has-feedback">
+                    <label class="control-label col-sm-3">定价</label>
+                    <div class="col-sm-4">
+                      <input id="price" type="text" class="form-control" ng-model="book.price">
+                      <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                      <span id="inputSuccess3Status" class="sr-only">(success)</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label pl-0">分类：</label>
+                    <div class="col-sm-6">
+                      <select id="classify" class="form-control" ng-model="book.classify">
+                        <option value="0">请选择</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label pl-0">上架状态：</label>
+                    <div class="col-sm-8">
+                      <label class="radio-inline">
+                        <input id="shangjia" type="radio" name="status" value="1" checked ng-model="book.status"> 上架
+                      </label>
+                      <label class="radio-inline">
+                        <input id="xiajia" type="radio" name="status" value="0" ng-model="book.status"> 下架
+                      </label>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label pl-0">借出状态：</label>
+                    <div class="col-sm-8">
+                      <label class="radio-inline">
+                        <input id="weijiechu" type="radio" name="b_status" value="0" checked ng-model="book.borrow_status"> 未借出
+                      </label>
+                      <label class="radio-inline">
+                        <input id="yijiechu" type="radio" name="b_status" value="1" ng-model="book.borrow_status"> 已借出
+                      </label>
+                    </div>
+                  </div>
+                </form>  
+                </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                  <button ng-show="!isUpdate" id="bcrkBtn" type="button" class="btn btn-primary w-110" ng-click="saveBookClick()">保存并入库</button>
+                  <button ng-show="isUpdate" id="bcrkBtn" type="button" class="btn btn-primary w-110" ng-click="doModiBookClick()">确定修改</button>
+              </div>
+            </div>
+        </div>
+    </div>
