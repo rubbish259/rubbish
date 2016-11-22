@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../lib/reset.css">
+	<style>
+		.todos {
+			width: 300px;
+			margin: 20px auto;
+			background-color: #ccc;
+		}
+
+		.todo-list li:hover .del-btn {
+			display: block;
+		}
+
+		.del-btn {
+			float: right;
+			cursor: pointer;
+			display: none;
+		}
+
+		.todo-text.complete {
+			text-decoration: line-through;
+			color: red;
+			font-style: italic;
+		}
+
+		.edit {
+			display: none;
+		}
+
+		li.editing .edit {
+			display: block;
+		}
+
+		li.editing .wp {
+			display: none;
+		}
+
+		a.selected {
+			background-color: red;
+			color: #fff;
+		}
+
+	</style>
+</head>
+<body>
+
+	<div id="todos" class="todos">
+		
+		<h1>TODOS</h1>
+
+		<div>
+			<input v-model="todoTxt" type="text" v-on:keyup.enter="saveTodo" placeholder="你想写点啥？">
+		</div>
+
+		<ul class="todo-list">
+			<li v-for="todo in fTodos" v-bind:class="{editing: todo == editedTodo}">
+				<div class="wp">
+					<input type="checkbox" v-model="todo.completed">
+					<span v-on:dblclick="editTodo(todo)" class="todo-text" v-bind:class="{complete: todo.completed}">{{todo.text}}</span>
+					<span class="del-btn" v-on:click="removeTodo(todo)">&times;</span>
+				</div>
+				<input v-on:blur="doneEdit(todo)" class="edit" type="text" v-model="todo.text">
+			</li>
+		</ul>
+
+		<hr>
+
+		<div class="tool-bar">
+			<span>还剩{{remaining}}项</span>
+			<a v-bind:class="{selected: visibility == 'all'}" href="#/all">所有</a>
+			<a v-bind:class="{selected: visibility == 'active'}" href="#/active">未完成</a>
+			<a v-bind:class="{selected: visibility == 'completed'}" href="#/completed">已完成</a>
+		</div>
+
+	</div>
+
+	<script src="node_modules/vue/dist/vue.min.js"></script>
+	<script>
+		"use strict";
+
+		var STORAGE_KEY = "wbc-08-vue";
+
+		var todoStorage = {
+			save: function(todos) {
+				localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
+			},
+			fetch: function() {
+				var todos = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+				return todos;
+			}
+		};
+
+		var maps = {
+			all: function (todos) {
+				return todos;
+			},
+			active: function (todos) {
+				return todos.filter(function (todo) {
+					return !todo.completed;
+				});
+			},
+			completed: function (todos) {
+				return todos.filter(function (todo) {
+					return todo.completed;
+				});
+			}
+		};
+
+		/////////////////////////////////////////////////////
+
+		var app = new Vue({
+			el: '#todos',
+
+			data: {
+				todoTxt: '',
+				todos: todoStorage.fetch(),
+				editedTodo: null,
+				visibility: 'all'
+			},
+
+			computed: {
+				remaining: function() {
+					var tmpTodos = this.todos.filter(function(obj) {
+						return !obj.completed;
+					});
+					return tmpTodos.length;
+				},
+				fTodos: function() {
+					return maps[this.visibility](this.todos);
+				}
+			},
+
+			watch: {
+				todos: {
+					handler: function(todos) {
+						todoStorage.save(todos);
+					},
+					deep: true
+				}
+			},
+
+			methods: {
+				saveTodo: function() {
+					this.todos.push({
+						text: this.todoTxt,
+						completed: false
+					});
+					this.todoTxt = '';
+				},
+				removeTodo: function(todo) {
+					this.todos.splice(this.todos.indexOf(todo), 1);
+				},
+				editTodo: function(todo) {
+					// this.oldTxt = todo.title;
+					this.editedTodo = todo;
+				},
+				doneEdit: function(todo) {
+					this.editedTodo = null;
+					todo.text = todo.text.trim();
+					if (!todo.text) {
+						this.removeTodo(todo);
+					}
+				}
+			}
+		});
+
+		var onHashChange = function() {
+			var hash = location.hash.replace(/#\/?/, '');
+			if (maps[hash]) {
+				app.visibility = hash;
+			} else {
+				app.visibility = 'all';
+				location.hash = '';
+			}
+		};
+
+		onHashChange();
+
+		window.onhashchange = onHashChange;
+
+	</script>
+	
+</body>
+</html>

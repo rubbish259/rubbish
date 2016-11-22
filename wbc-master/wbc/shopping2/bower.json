@@ -1,0 +1,23 @@
+{
+  "name": "shopping2",
+  "authors": [
+    "situ <gao_st@126.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "layer": "*",
+    "angular": "^1.5.8",
+    "underscore": "^1.8.3"
+  }
+}

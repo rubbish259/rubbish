@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.router-link-active {
+			color: red;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="app">
+		<h1>Hello App!</h1>
+		<p>
+			<router-link to="/foo">Go to Foo</router-link>
+			<router-link to="/bar">Go to Bar</router-link>
+		</p>
+		<router-view></router-view>
+	</div>
+	
+	<script src="node_modules/vue/dist/vue.min.js"></script>
+	<script src="node_modules/vue-router/dist/vue-router.min.js"></script>
+	<script>
+		var Foo = {template: '<div>foo</div>'};
+		var Bar = {template: '<div>bar</div>'};
+
+		var routes = [
+			{path: '/foo', component: Foo, beforeEnter: function(to, from, next) {
+				console.log('from: ');
+				console.log(from);
+				console.log('to: ' );
+				console.log(to);
+				next();
+			}},
+			{path: '/bar', component: Bar}
+		];
+
+		var router = new VueRouter({
+			routes: routes
+		});
+
+		router.beforeEach(function(to, form, next) {
+			console.log(to);
+			next(); // next() 之前可以改变路由地址
+		});
+
+		router.afterEach(function(route) {
+			console.log(route);
+		});
+
+		var app = new Vue({
+			router: router
+		}).$mount('#app');
+	</script>
+</body>
+</html>

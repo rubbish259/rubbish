@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script>
+		var i = 1, timer;
+		timer = setInterval(function() {
+			if (i > 10) {
+				clearInterval(timer);
+				return;
+			}
+			console.log(i);
+			i++;
+		}, 1000);
+
+	</script>
+
+</body>
+</html>

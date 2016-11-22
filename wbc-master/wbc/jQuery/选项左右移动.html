@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		select {
+			width: 100px;
+			height: 200px;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="selector">
+		
+		<select id="left" multiple>
+			<option value="">option1</option>
+			<option value="">option2</option>
+			<option value="">option3</option>
+			<option value="">option4</option>
+			<option value="">option5</option>
+		</select>
+
+		<button class="toRight">&gt;</button>
+		<button class="toLeft">&lt;</button>
+		<button class="allToRight">&gt;&gt;</button>
+		<button class="allToLeft">&lt;&lt;</button>
+
+		<select id="right" multiple="multiple">
+			<option value="">aaa</option>
+			<option value="">bbb</option>
+			<option value="">ccc</option>
+		</select>
+
+	</div>
+	
+	<script src="../lib/jquery-1.12.1.min.js"></script>
+	<script>
+		
+		var $selector = $('#selector'),
+			$left = $selector.find('#left'),
+			$right = $selector.find('#right');
+
+		$selector.find('button').on('click', function(event) {
+
+			var $this = $(this),
+
+				$leftSelOpts = $left.find('option:selected');
+
+			if ($this.hasClass('toRight')) {
+
+				if ($leftSelOpts.length == 0) {
+					// 提示
+					return;
+				}
+				$right.append($leftSelOpts);
+				console.log($leftSelOpts)
+			} else if ($this.hasClass('allToRight')) {
+				$right.append($left.find('option'));
+			}
+
+			console.log(event);
+
+		});
+
+		$selector.find('option').on('dblclick', function() {
+			var $this = $(this);
+			if ($this.parent().attr('id') == 'left') {
+				$right.append($this);
+			} else {
+				$left.append($this);
+			}
+		});
+
+	</script>
+
+</body>
+</html>

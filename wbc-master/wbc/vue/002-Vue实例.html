@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<div id="app1">
+		{{a}}
+	</div>
+	
+	<script src="node_modules/vue/dist/vue.min.js"></script>
+	<script>
+		var app1 = new Vue({
+			el: '#app1',
+			data: {
+				a: 1
+			}
+		});
+
+		// app1.$data
+		// app1.$el
+
+		app1.$watch('a', function(n, o) {
+			console.log(n + ':' + o);
+		});
+	</script>
+</body>
+</html>

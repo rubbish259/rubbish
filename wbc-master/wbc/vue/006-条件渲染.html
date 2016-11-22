@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+
+	</style>
+</head>
+<body>
+	
+	<div id="app1">
+		<h1 v-if="ok">abc</h1>
+		<h1 v-else>def</h1>
+
+		<template v-if="ook">
+			<h1>test</h1>
+			<h2>test2</h2>
+			<h3>test3</h3>
+		</template>
+
+		<hr>
+		<div v-if="Math.random() > 0.5">
+		  Sorry
+		</div>
+		<div v-else>
+		  Not sorry
+		</div>
+
+		<hr>
+
+		<h1 v-show="ok">Hello!</h1>
+	</div>
+
+	<script src="node_modules/vue/dist/vue.min.js"></script>
+	<script>
+		var app1 = new Vue({
+			el: '#app1',
+			data: {
+				ok: false,
+				ook: true
+			}
+		});
+	</script>
+</body>
+</html>

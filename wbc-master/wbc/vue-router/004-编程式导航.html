@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.router-link-active {
+			color: red;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="app">
+		<p id="btns">
+			<button v-on:click="showView('btn1')">/user/foo</button>
+			<button v-on:click="showView('btn2')">/user/foo/profile</button>
+			<button v-on:click="showView('btn3')">/user/foo/posts</button>
+		</p>
+		<router-view></router-view>
+	</div>
+	
+	<script src="node_modules/vue/dist/vue.min.js"></script>
+	<script src="node_modules/vue-router/dist/vue-router.min.js"></script>
+	<script>
+		var User = {
+			template: `
+				<div class="user">
+					<h2>User {{$route.params.id}}</h2>
+					<router-view></router-view>
+				</div>
+			`
+		};
+
+		var UserHome = { template: '<div>Home</div>' };
+		var UserProfile = { template: '<div>Profile</div>' };
+		var UserPosts = { template: '<div>Posts</div>' };
+
+		var router = new VueRouter({
+			routes: [{
+				path: '/user/:id', component: User,
+				children: [
+					{path: '', component: UserHome},
+					{path: 'profile', component: UserProfile},
+					{path: 'posts', component: UserPosts}
+				]
+			}]
+		});
+
+		var app = new Vue({
+			router: router,
+			methods: {
+				showView: function(btn) {
+					if (btn == 'btn1') {
+						router.push('/user/foo');
+					} else if (btn == 'btn2') {
+						router.push({path: '/user/foo/profile'});
+					} else {
+						router.push({path: '/user/foo/posts'});
+					}
+				}
+			}
+		}).$mount('#app');
+
+	</script>
+</body>
+</html>

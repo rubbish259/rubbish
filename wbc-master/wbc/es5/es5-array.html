@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<div class="test-div">div1</div>
+	<div class="test-div1">div2</div>
+	<div class="test-div">div3</div>
+	<div class="test-div2">div4</div>
+	<div class="test-div">div5</div>
+	<div class="test-div3">div6</div>
+	<div class="test-div">div7</div>
+	<div class="test-div4">div8</div>
+	<div class="test-div">div9</div>
+	<div class="test-div5">div10</div>
+
+	<script>
+
+	var divs = document.getElementsByTagName('div');
+
+	Array.prototype.forEach.call(divs, function(div) {
+		console.log(div.className);
+	});
+
+	// divs.forEach(function(item) {
+	// 	console.log(item.className);
+	// });
+
+	/*for (var i=0; i<divs.length; i++) {
+		console.log(divs[i].className);
+	}*/
+
+	// var data = [2, 5, 7, 3, 5];
+
+	/*var scores = [5, 8, 3, 10];
+	var current = 7;
+
+	function test(score) {
+		console.log(score);
+		return score > current;
+	}
+
+	if (scores.some(test)) { // every
+		alert('OK');
+	} else {
+		alert('NO');
+	}*/
+
+	/*var users = [
+	  {name: "张含韵", "email": "zhang@email.com"},
+	  {name: "江一燕",   "email": "jiang@email.com"},
+	  {name: "李小璐",  "email": "li@email.com"}
+	];
+
+	var emails = users.map(function (user) { return user.name; });
+
+	console.log(emails.join(", "));*/
+
+	/*var arr = [1, 2, 3, 4, 5];
+
+	var arr2 = arr.filter(function(item) {
+		if (item % 2 == 1) {
+			return item;
+		}
+	});
+
+	console.log(arr2);*/
+
+
+	//////////////////////////////////////////////
+
+	/*var arr = [1, 2, 3, 4, 5];
+
+	delete arr[1];
+
+	console.log(arr);
+
+	arr.forEach(alert);*/
+
+	//////////////////////////////////////////////
+		
+	/*var arr = [1, 2, 3, 4, 5];
+
+	var sum = 0;
+
+	arr.forEach(function(item, index) {
+		// console.log(item);
+		sum += item;
+	});
+
+	console.log(sum);*/
+
+	///////////////////////////////////////////////
+
+	/*var db = {
+		users: ["张三", "江一燕", "李小龙"],
+		sendEmail: function(user) {
+
+			console.log(this)
+
+			if (this.isValidUser(user)) {
+				console.log("你好: " + user);
+			} else {
+				console.log("抱歉：" + user);
+			}
+
+		},
+		isValidUser: function(user) {
+			return /^李/.test(user); 
+		}
+	};
+
+	// db.users.forEach(db.sendEmail);
+	db.users.forEach(db.sendEmail, db);*/
+
+	</script>
+	
+</body>
+</html>

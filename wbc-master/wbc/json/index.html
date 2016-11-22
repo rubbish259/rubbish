@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+
+		<table border="1">
+			<tr>
+				<th>序号</th>
+				<th>姓名</th>
+				<th>年龄</th>
+				<th>邮箱</th>
+			</tr>
+			
+		</table>
+		
+		<script src="../lib/jquery-1.12.1.min.js"></script>
+		<script src="json.js"></script>
+		<script>
+			"use strict";
+			$.get('data.txt', function(response) {
+				var obj = JSON.parse(response);
+				if (obj.success) {
+					renderTable(obj.list.data);
+				}
+				console.log(obj);
+			});
+
+			var renderTable = function(data) {
+				var trArr = [];
+				$.each(data, function(index, obj) {
+
+					console.log(arguments);
+
+					trArr.push(
+						'<tr>',
+							'<td>', index+1, '</td>',
+							'<td>', obj.name, '</td>',
+							'<td>', obj.age, '</td>',
+							'<td>ddd</td>',
+						'</tr>'
+					);
+				});
+
+				console.log(trArr);
+				
+				$('table').append(trArr.join(''));
+			};
+		</script>
+	</body>
+</html>

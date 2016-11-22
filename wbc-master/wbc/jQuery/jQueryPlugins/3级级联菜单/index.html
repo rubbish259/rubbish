@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<div data-toggle="distpicker">
+		<select data-province="河北省"></select>
+		<select data-city="保定市"></select>
+		<select data-district="徐水县"></select>
+	</div>
+
+	<hr>
+
+	<div id="test1">
+		<select name="" id=""></select>
+		<select name="" id=""></select>
+		<select name="" id=""></select>
+	</div>
+
+	<script src="../../../lib/jquery-1.12.1.min.js"></script>
+	<script src="js/distpicker.min.js"></script>
+
+	<script>
+		$('#test1').distpicker({
+		  province: '请选择',
+		  city: '请选择',
+		  district: '请选择'
+		});
+	</script>
+</body>
+</html>

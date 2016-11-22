@@ -1,0 +1,15 @@
+{
+  "name": "mi-shopping-vue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vue": "^2.0.5",
+    "vue-router": "^2.0.1"
+  }
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.router-link-active {
+			color: red;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="app">
+		<h1>Hello App!</h1>
+		<p>
+			<router-link to="/foo">Go to Foo</router-link>
+			<router-link to="/bar">Go to Bar</router-link>
+			<router-link to="/test">test</router-link>
+			<router-link to="/test2">test2</router-link>
+			<router-link to="/test3">test3</router-link>
+			<router-link to="/wbc">wbc</router-link>
+		</p>
+		<router-view></router-view>
+	</div>
+	
+	<script src="node_modules/vue/dist/vue.min.js"></script>
+	<script src="node_modules/vue-router/dist/vue-router.min.js"></script>
+	<script>
+		var Foo = {template: '<div>foo</div>'};
+		var Bar = {template: '<div>bar</div>'};
+		var Test3 = {template: '<div>test3</div>'};
+
+		var routes = [
+			{path: '/foo', component: Foo},
+			{path: '/bar', component: Bar},
+			{path: '/test', redirect: '/bar'},
+			{path: '/test2', redirect: function() {
+				return '/foo';
+			}},
+			{path: '/test3', component: Test3, alias: '/wbc'}
+		];
+
+		var router = new VueRouter({
+			routes: routes
+		});
+
+		var app = new Vue({
+			router: router
+		}).$mount('#app');
+	</script>
+</body>
+</html>

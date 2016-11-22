@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<link rel="stylesheet" type="text/css" href="css/submit.css">
+	<title>天天建道</title> 
+</head>
+<body>
+
+	<div class="top"></div>
+	<div class="project">
+		<div class="project-id">
+			<div class="left">项目ID号：</div>
+			<div class="right">29000</div>
+		</div>
+		<div class="project-id">
+			<div class="left">项目名称：</div>
+			<div class="right">浙江省会展中心</div>
+		</div>
+		<div class="project-id">
+			<div class="left">邀请码：</div>
+			<div class="right">12345</div>
+		</div>
+		<div class="project-id">
+			<div class="left">订阅时长：</div>
+			<div class="red">
+				<span  id="jian" class="add">-</span>
+				<div class="month">
+					<span id="month" class="math">1</span>
+					<span>个月</span>
+				</div>
+				<span id="add" class="add">+</span>
+
+			</div>
+		</div>
+		<div class="project-id">
+			<div class="left">订阅开始时间：</div>
+			<div id="start" class="red">0000-00-00</div>
+		</div>
+		<div class="project-id">
+			<div class="left">订阅结束时间：</div>
+			<div id="stop" class="red">2017-01-20</div>
+		</div>
+		<div class="project-price">
+			<div class="left">合计金额：</div>
+			<div class="red"><span id="totalPrice">360</span><span>元</span></div>
+		</div>
+
+	</div>
+
+	<div class="center"></div>
+
+	<div class="history">
+		<div class="left">开据发票：</div>
+		<!-- 开关按钮 -->
+		<span class="m-checkbox">
+			<input id="messageBtn"  type="checkbox">
+			<i></i>
+			<span class="bg"></span>
+		</span>
+	</div>
+
+	<!-- 发票信息-->
+	<section>
+		<div>发票抬头：<span>必填></span></div>
+		<div>邮寄地址:<span>必填></span></div>
+		<div>收件人:<span>必填></span></div>
+		<div class="phone">联系电话：<span>必填></span></div>
+	</section>
+    <!--发票结束 -->
+
+
+	<div class="detail">
+		<span>天天建道可提供普通增值税发票，订阅成功后，将在24小时内免费给您邮寄发票。</span>
+	</div>
+
+	<footer>
+		<button>提交订单</button>
+	</footer>
+
+
+		<script>
+        (function (doc, win) {
+          var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function () {
+              var clientWidth = docEl.clientWidth;
+              if (!clientWidth) return;
+              docEl.style.fontSize = 20 * (clientWidth / 441) + 'px';
+            };
+
+          if (!doc.addEventListener) return;
+          win.addEventListener(resizeEvt, recalc, false);
+          doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+		</script>
+
+		<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+		<script type="text/javascript" src="js/submit.js"></script>
+
+
+</body>
+</html>

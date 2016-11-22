@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<button id="btn">my btn</button>
+
+	<div id="myDiv"><h1>my div</h1></div>
+
+	<script>
+		
+	var btn = document.getElementById('btn');
+	var myDiv = document.getElementById('myDiv');
+
+	btn.onclick = function() {
+
+		alert(this.innerHTML);
+
+	}.bind(myDiv);
+
+	</script>
+	
+</body>
+</html>

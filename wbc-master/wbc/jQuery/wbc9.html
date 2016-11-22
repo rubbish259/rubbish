@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<h1>a git test file</h1>
+
+	<div>item1</div>
+	<div>item2</div>
+	<div>item3</div>
+	<div>item4</div>
+	<div>item5</div>
+
+	<hr>
+
+	<span>span1</span>
+	<span>span2</span>
+	<span>span3</span>
+	<span>span4</span>
+	<span>span5</span>
+	<span>span6</span>
+	<span>span7</span>
+	<span>span8</span>
+
+	<hr>
+
+	<ul>
+		<li>item1</li>
+		<li>item2</li>
+		<li>item3</li>
+		<li>item4</li>
+		<li>item5</li>
+	</ul>
+
+	<hr>
+
+	<select name="" id="">
+		<option value="1">option1</option>
+		<option value="2">option2</option>
+		<option value="3">option3</option>
+		<option value="4">option4</option>
+		<option value="5">option5</option>
+	</select>
+
+	<script src="../lib/jquery-1.12.1.min.js"></script>
+	<script>
+		
+	var arr = [1, 2, 3, 'a', 'b', 'c'];
+	var obj = {
+		name: 'abc',
+		age: 20,
+		gender: "男",
+		email: 'abc@126.com'
+	};
+
+	/*$.each(obj, function(key, val) {
+		console.log(val)
+	});*/
+
+
+	// $('span').each(function(index, span) {
+		// console.log(this)
+
+		/*if (index % 2 == 0) {
+			$(this).css('color', 'red');
+		} else {
+			$(this).css('color', 'blue');
+		}*/
+
+	// });
+
+	var $span = $('span');
+	$span
+		.filter(':odd').css('color', 'blue')
+		.end()
+		.filter(':even').css('color', 'red');
+
+	/*$span.filter(':odd').css('color', 'blue');
+	$span.filter(':even').css('color', 'red');*/
+
+	</script>
+	
+</body>
+</html>

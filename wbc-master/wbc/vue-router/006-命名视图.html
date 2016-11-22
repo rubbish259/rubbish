@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.router-link-active {
+			color: red;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="app">
+		<h1>Named Views</h1>
+		<ul>
+			<li><router-link to="/">/</router-link></li>
+			<li><router-link to="/other">/other</router-link></li>
+		</ul>
+		<router-view class="view one"></router-view>
+		<router-view class="view two" name="a"></router-view>
+		<router-view class="view three" name="b"></router-view>
+	</div>
+	
+	<script src="node_modules/vue/dist/vue.min.js"></script>
+	<script src="node_modules/vue-router/dist/vue-router.min.js"></script>
+	<script>
+		
+		var Foo = { template: '<div>foo</div>' };
+		var Bar = { template: '<div>bar</div>' };
+		var Baz = { template: '<div>baz</div>' };
+		var Wbc1 = { template: '<div>wbc1</div>' };
+		var Wbc2 = { template: '<div>wbc2</div>' };
+
+		var router = new VueRouter({
+		  // mode: 'history',
+		  // base: 'C:/wamp/www/vue/vue04/006-命名视图.html#/',
+		  routes: [
+		    { path: '/',
+		      // a single route can define multiple named components
+		      // which will be rendered into <router-view>s with corresponding names.
+		      components: {
+		        default: Foo,
+		        a: Bar,
+		        b: Baz
+		      }
+		    },
+		    {
+		      path: '/other',
+		      components: {
+		        default: Wbc1,
+		        a: Wbc2
+		      }
+		    }
+		  ]
+		});
+
+		new Vue({
+			router,
+		  	el: '#app'
+		});
+
+
+	</script>
+</body>
+</html>

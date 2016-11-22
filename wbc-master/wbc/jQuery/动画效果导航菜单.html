@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../lib/reset.css">
+	<style>
+
+		.nav {
+			position: relative;
+			width: 800px;
+			margin: 0 auto;
+		}
+
+		#bLine {
+			content: '';
+			display: block;
+			width: 120px;
+			height: 5px;
+			background-color: red;
+			position: absolute;
+			bottom: 0;
+		}
+
+		.nav ul {
+			overflow: hidden;
+		}
+
+		.nav ul {
+			background-color: #000;
+		}
+
+		.nav li {
+			float: left;
+			height: 50px;
+			line-height: 50px;
+			color: #fff;
+			padding: 0 20px;
+			cursor: pointer;
+		}
+
+		.nav li.on {
+			color: red;
+		}
+
+		.nav li:hover {
+			color: red;
+		}
+
+	</style>
+</head>
+<body>
+
+	<div class="nav">
+		<ul>
+			<li class="on">Javascript</li>
+			<li>PHP</li>
+			<li>CSS</li>
+			<li>jQuery</li>
+			<li>AnuglarJS</li>
+		</ul>
+		<div id="bLine"></div>
+	</div>
+	
+	<script src="../lib/jquery-1.12.1.min.js"></script>
+	<script>
+
+		"use strict";
+
+		var $bLine = $('#bLine');
+		
+		$('.nav li').on('mouseover', function() {
+
+			var $this = $(this),
+				w = $this.outerWidth(),
+				pos = $this.position(); // offset() ???
+
+			$this.addClass('on').siblings('.on').removeClass('on');
+			$bLine.width(w).animate({left: pos.left}, 100);
+
+		});
+
+	</script>
+</body>
+</html>
